@@ -255,16 +255,16 @@ const Signup: React.FC = () => {
   };
 
   const isFieldValid = (name: string) => {
-    return Boolean(
-      touchedFields.has(name) &&
-      !validationErrors[name] &&
-      formData[name as keyof FormData],
-    );
-  };
+  return Boolean(
+    touchedFields.has(name) &&
+    !validationErrors[name as keyof ValidationErrors] &&
+    formData[name as keyof FormData],
+  );
+};
 
   const isFieldInvalid = (name: string) => {
-    return touchedFields.has(name) && validationErrors[name];
-  };
+  return touchedFields.has(name) && validationErrors[name as keyof ValidationErrors];
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">

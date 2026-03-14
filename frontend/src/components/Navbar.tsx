@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
     if (isAdmin()) {
       return (user as any).adminName || "Admin";
     }
-    return user.name || (user as any).username || "User";
+    return (user as any).name || (user as any).username || "User";
   };
 
   const getUserInitial = () => {
@@ -171,14 +171,14 @@ const Navbar: React.FC = () => {
                       }
                       className="flex items-center space-x-2 p-2 rounded-lg hover:bg-gray-50 transition-colors"
                     >
-                      {user?.avatar ? (
+                      {(user as any)?.avatar ? (
                         <img
-                          src={user.avatar}
+                          src={(user as any).avatar}
                           alt={getUserDisplayName()}
                           className="h-8 w-8 rounded-full object-cover"
                         />
                       ) : (
-                        <div className="h-8 w-8 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center">
+                        <div className="h-8 w-8 rounded-full bg-linear-to-r from-blue-600 to-purple-600 flex items-center justify-center">
                           <span className="text-sm font-bold text-white">
                             {getUserInitial()}
                           </span>
@@ -295,9 +295,9 @@ const Navbar: React.FC = () => {
               {/* Mobile User Info when logged in */}
               {isAuthenticated && (
                 <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg mb-3">
-                  {user?.avatar ? (
+                  {(user as any)?.avatar ? (
                     <img
-                      src={user.avatar}
+                      src={(user as any).avatar}
                       alt={getUserDisplayName()}
                       className="h-10 w-10 rounded-full object-cover"
                     />

@@ -166,7 +166,7 @@ const useAuthStore = create<AuthStore>()(
               throw new Error("User data not found in response");
             }
 
-            const userWithRole: AuthUser = { ...rawUser, role };
+            const userWithRole: any = { ...rawUser, role };
 
             localStorage.setItem("accessToken", accessToken);
             localStorage.setItem("refreshToken", refreshToken);
@@ -236,7 +236,7 @@ const useAuthStore = create<AuthStore>()(
             const role: "user" | "admin" = data.data.admin ? "admin" : "user";
 
             if (accessToken && refreshToken && rawUser) {
-              const userWithRole: AuthUser = { ...rawUser, role };
+              const userWithRole: any = { ...rawUser, role };
 
               localStorage.setItem("accessToken", accessToken);
               localStorage.setItem("refreshToken", refreshToken);

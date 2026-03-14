@@ -12,7 +12,7 @@ import useAuthStore from "../../store/authStore";
 import type { Admin } from "../../store/authStore";
 
 interface AdminProfileProps {
-  user: Admin | null;
+  user: Admin | any;
 }
 
 const AdminProfile: React.FC<AdminProfileProps> = ({ user }) => {

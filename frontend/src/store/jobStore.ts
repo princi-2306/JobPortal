@@ -136,7 +136,7 @@ axiosInstance.interceptors.request.use(
 
 const useJobStore = create<JobStore>()(
   persist(
-    (set, get) => ({
+    (set, _get) => ({
       // Initial State
       jobs: [],
       filteredJobs: [],

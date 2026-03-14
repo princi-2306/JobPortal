@@ -233,7 +233,7 @@ const Home = () => {
                 >
                   <span className="relative z-10 flex items-center justify-center space-x-2">
                     <span>{isLoggedIn() ? 
-                    <><Link to={user.role == "admin" ? "/admin/dashboard" : "/dashboard"}> Go to DashBoard</Link></> : <Link to="/signup">Sign up for Free</Link>}</span>
+                    <><Link to={(user as any).role == "admin" ? "/admin/dashboard" : "/dashboard"}> Go to DashBoard</Link></> : <Link to="/signup">Sign up for Free</Link>}</span>
                     <ArrowRightIcon className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </span>
                   <motion.div
@@ -400,7 +400,7 @@ const Home = () => {
                 className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all whitespace-nowrap"
               >
                 {isLoggedIn() ? 
-                    <><Link to={user.role == "admin" ? "/admin/dashboard" : "/dashboard"}> Go to DashBoard</Link></> : <Link to="/signup">Get Started for Free</Link>}
+                    <><Link to={(user as any).role == "admin" ? "/admin/dashboard" : "/dashboard"}> Go to DashBoard</Link></> : <Link to="/signup">Get Started for Free</Link>}
               </motion.button>
             </div>
           </motion.div>

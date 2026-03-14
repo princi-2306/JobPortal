@@ -70,7 +70,7 @@ const JobDescription: React.FC<JobDescriptionProps> = ({ job }) => {
           );
         }
 
-        if (section.type === "list" && section.items?.length > 0) {
+        if (section.type === "list" && (section as any).items?.length > 0) {
           const Icon = section.icon;
           return (
             <div key={index} className="bg-white rounded-2xl shadow-lg p-8">
@@ -78,7 +78,7 @@ const JobDescription: React.FC<JobDescriptionProps> = ({ job }) => {
                 {section.title}
               </h2>
               <ul className="space-y-2">
-                {section.items.map((item, i) => (
+                {(section as any).items.map((item: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined, i: React.Key | null | undefined) => (
                   <li key={i} className="flex items-start">
                     {Icon && (
                       <Icon
@@ -93,16 +93,16 @@ const JobDescription: React.FC<JobDescriptionProps> = ({ job }) => {
           );
         }
 
-        if (section.type === "skills" && section.items?.length > 0) {
+        if (section.type === "skills" && (section as any).items?.length > 0) {
           return (
             <div key={index} className="bg-white rounded-2xl shadow-lg p-8">
               <h2 className="text-xl font-bold text-gray-900 mb-4">
                 {section.title}
               </h2>
               <div className="flex flex-wrap gap-2">
-                {section.items.map((skill) => (
+                {(section as any).items.map((skill: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined, index: React.Key | null | undefined) => (
                   <span
-                    key={skill}
+                    key={index}
                     className="px-3 py-2 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium"
                   >
                     {skill}

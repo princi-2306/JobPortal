@@ -1,5 +1,5 @@
 // pages/UserDashboard.tsx
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, type JSX } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
@@ -100,7 +100,7 @@ const UserDashboard: React.FC = () => {
           className="mb-8"
         >
           <h1 className="text-3xl font-bold text-gray-900">
-            Welcome back, {user?.name || (user as any)?.username}!
+            Welcome back, {(user as any)?.name || (user as any)?.username}!
           </h1>
           <p className="text-gray-600 mt-2">
             Track your job applications and manage your job search journey
@@ -363,9 +363,9 @@ const ApplicationCard: React.FC<ApplicationCardProps> = ({
 
         {/* Skills */}
         <div className="flex flex-wrap gap-2 mb-4">
-          {job.requiredSkills.slice(0, 5).map((skill) => (
+          {job.requiredSkills.slice(0, 5).map((skill: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined, index: React.Key | null | undefined) => (
             <span
-              key={skill}
+              key={index}
               className="px-2 py-1 bg-blue-50 text-blue-600 text-xs rounded-full"
             >
               {skill}
